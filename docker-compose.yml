@@ -1,0 +1,50 @@
+version: "1"
+
+services:
+  mongodb:
+    image: mongo
+    # env_file: .env-mongo
+    container_name: my-mongodb-container
+    # volumes:
+    #   - mongodb-data:/data/db
+
+    volumes:
+      # - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongodb-data:/data/db
+
+    ports:
+      - "27017:27017"
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: example
+    #   MAINDB_PASSWORD: pwd
+
+  react:
+    build:
+      context: ./react
+    container_name: my-react-container
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    volumes:
+    - ./react/react-application:/app/react-application
+    tty: true
+
+
+  node:
+    build:
+      context: ./nodejs
+    container_name: my-node-container
+    ports:
+      - "3001:3001"
+    stdin_open: true
+    volumes:
+    - ./nodejs/node-application:/node/node-application
+    tty: true
+
+    
+
+volumes:
+  mongodb-data:
+
