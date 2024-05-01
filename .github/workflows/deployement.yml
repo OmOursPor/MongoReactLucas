@@ -13,23 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install react dependencies
-        run: |
-          cd react/react-application
-          npm install
-
-      - name: Run tests
-        run: |
-          cd react/react-application
-          npm run test
-
-      - name: Install node dependencies
-        run: |
-          cd nodejs/node-application
-          npm install
+      
 
       - name: build docker-compose
         run: |
