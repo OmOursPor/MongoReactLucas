@@ -17,7 +17,6 @@ jobs:
 
       - name: build docker-compose
         run: |
-          cd nodejs/node-application
           docker-compose up -d --build
           
 
