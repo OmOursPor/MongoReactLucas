@@ -19,11 +19,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: install react dependencies
+        run: |
+          cd react/react-app
+          npm install
+          
       - name: exec react test
         run: |
           cd react/react-app
           npm run test
-      
+
+      - name: install node dependencies
+        run: |
+          cd nodejs/node-application
+          npm install
+          
       - name: build docker-compose
         run: |
           docker-compose up -d --build
