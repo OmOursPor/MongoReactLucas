@@ -5,7 +5,7 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copier le fichier package.json et package-lock.json dans le conteneur
-COPY react-application/package*.json ./
+COPY react-app/package*.json ./
 
 # Installer les dépendances
 RUN npm install
@@ -13,7 +13,7 @@ RUN npm install
 RUN rm -rf src
 
 # Copier le reste des fichiers dans le conteneur
-COPY react-application .
+COPY react-app .
 
 # Construire l'application React
 # RUN npm run build

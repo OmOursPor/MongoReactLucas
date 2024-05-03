@@ -28,7 +28,7 @@ services:
       - "3000:3000"
     stdin_open: true
     volumes:
-    - ./react/react-application:/app/react-application
+    - ./react/react-app:/app/react-app
     tty: true
 
 
