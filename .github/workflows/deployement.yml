@@ -9,11 +9,15 @@ on:
       - master
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [21.x]
 
     steps:
-      
+      - uses: actions/checkout@v2
 
       - name: build docker-compose
         run: |
