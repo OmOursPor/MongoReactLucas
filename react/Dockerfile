@@ -16,7 +16,7 @@ RUN rm -rf src
 COPY react-application .
 
 # Construire l'application React
-RUN npm run build
+# RUN npm run build
 
 # Exposer le port sur lequel l'application écoute
 EXPOSE 3000
