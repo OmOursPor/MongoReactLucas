@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
-
       - name: build docker-compose
         run: |
           cd nodejs/node-application
